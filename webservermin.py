@@ -29,18 +29,18 @@ class WebRequestHandler(BaseHTTPRequestHandler):
         self.end_headers()
         response = f"""
          {books[book_id]}
-    <p>  Ruta: {self.path}            </p>
-    <p>  URL: {self.url}              </p>
-    <p>  HEADERS: {self.headers}      </p>
+    <p> <STRONG> Ruta: </STRONG> {self.path}            </p>
+    <p> <STRONG> URL: </STRONG> {self.url}              </p>
+    <p> <STRONG> HEADERS: </STRONG> {self.headers}      </p>
 """
         self.wfile.write(response.encode("utf-8"))
 
     def get_response(self, book_id):
         return f"""
          {books[book_id]}
-    <p>  Ruta: {self.path}         </p>
-    <p>  URL: {self.url}         </p>
-    <p>  HEADERS: {self.headers}      </p>
+    <p>  <STRONG> Ruta: </STRONG> {self.path}         </p>
+    <p>  <STRONG> URL: </STRONG> {self.url}         </p>
+    <p>  <STRONG> HEADERS: </STRONG> {self.headers}      </p>
 """
 
 
@@ -53,6 +53,15 @@ books = {
             """, 
             '3':"""
             <h1> Book 3 </h1>
+            """, 
+            '4':"""
+            <h1> Book 4 </h1>
+            """, 
+            '5':"""
+            <h1> Book 5 </h1>
+            """, 
+            '6':"""
+            <h1> Book 6 </h1>
             """, 
         }
 

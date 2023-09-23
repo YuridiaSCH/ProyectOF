@@ -47,7 +47,7 @@ class WebRequestHandler(BaseHTTPRequestHandler):
         r.rpush(session_id, book_id)
         books = r.lrange(session_id, 0, 5)
         print(session_id, books)
-        all_books = [str(i+1) for i in range(4)]
+        all_books = [str(i+1) for i in range(6)]
         new = [b for b in all_books if b not in
                [vb.decode() for vb in books]]
         if new:
@@ -64,11 +64,11 @@ class WebRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
             response = f"""
             {book_page.decode()}
-        <p>  Ruta: {self.path}            </p>
-        <p>  URL: {self.url}              </p>
-        <p>  HEADERS: {self.headers}      </p>
-        <p>  SESSION: {session_id}      </p>
-        <p>  Recomendación: {book_recomendation}      </p>
+        <p>  <STRONG> Ruta: </STRONG> {self.path}            </p>
+        <p>  <STRONG> URL: </STRONG> {self.url}              </p>
+        <p>  <STRONG> HEADERS: </STRONG> {self.headers}      </p>
+        <p>  <STRONG> SESSION: </STRONG> {session_id}      </p>
+        <p>  <STRONG> Recomendación: </STRONG> {book_recomendation}      </p>
 """
             self.wfile.write(response.encode("utf-8"))
         else:

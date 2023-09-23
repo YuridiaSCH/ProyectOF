@@ -39,7 +39,7 @@ class WebRequestHandler(BaseHTTPRequestHandler):
 
     def get_response(self):
         return f"""
-    <h1> Hola Web </h1>
+    <h1> Holi Web </h1>
     <p>  {self.path}         </p>
     <p>  {self.headers}      </p>
     <p>  {self.cookies}      </p>
